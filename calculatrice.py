@@ -103,6 +103,7 @@ def egal():
 def open_history():
     history = Toplevel()
     history.title("Historique")
+    global history_label
     history_label = Label(history,text="Pas d'historique.", font=("arial",15))
     history_label.grid(row=1)
     history.geometry("300x300")
@@ -120,6 +121,8 @@ def open_history():
 def clear_history():
     f = open("historique.txt","w")
     f.close()
+    # Actualiser l'historique après avoir effacé 
+    history_label.config(text="", font=("arial",15))
 
 # permet de supprimer le fichier "historique.txt"
 def delete_history():
